@@ -15,6 +15,8 @@ import 'package:flutter/services.dart';
 import 'package:amar_hisab/screens/landing_page.dart';
 import 'package:provider/provider.dart';
 
+import 'package:amar_hisab/widgets/navigation_shell.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
@@ -67,7 +69,7 @@ class MyApp extends StatelessWidget {
              darkTheme: AdaptiveTheme.darkTheme(),
             themeMode: themeProvider.themeMode,
             debugShowCheckedModeBanner: false,
-            home: const LandingPage(),
+            home: const NavigationShell(),
             builder: (context, child) {
               // Apply responsive scaling and accessibility
               return MediaQuery(

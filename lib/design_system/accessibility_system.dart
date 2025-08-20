@@ -188,7 +188,6 @@ class AccessibleTextField extends StatefulWidget {
 }
 
 class _AccessibleTextFieldState extends State<AccessibleTextField> {
-
   @override
   Widget build(BuildContext context) {
     return Semantics(
@@ -197,52 +196,51 @@ class _AccessibleTextFieldState extends State<AccessibleTextField> {
       label: widget.semanticLabel ?? widget.labelText,
       hint: widget.hintText,
       child: TextField(
-          controller: widget.controller,
-          obscureText: widget.obscureText,
-          keyboardType: widget.keyboardType,
-          inputFormatters: widget.inputFormatters,
-          onChanged: widget.onChanged,
-          onTap: widget.onTap,
-          readOnly: widget.readOnly,
-          enabled: widget.enabled,
-          maxLines: widget.maxLines,
-          maxLength: widget.maxLength,
-          style: TextStyle(
-            fontSize: DesignTokens.bodySize,
-            color: widget.enabled 
-                ? Theme.of(context).textTheme.bodyLarge?.color
-                : Theme.of(context).disabledColor,
+        controller: widget.controller,
+        obscureText: widget.obscureText,
+        keyboardType: widget.keyboardType,
+        inputFormatters: widget.inputFormatters,
+        onChanged: widget.onChanged,
+        onTap: widget.onTap,
+        readOnly: widget.readOnly,
+        enabled: widget.enabled,
+        maxLines: widget.maxLines,
+        maxLength: widget.maxLength,
+        style: TextStyle(
+          fontSize: DesignTokens.bodySize,
+          color: widget.enabled
+              ? Theme.of(context).textTheme.bodyLarge?.color
+              : Theme.of(context).disabledColor,
+        ),
+        decoration: InputDecoration(
+          labelText: widget.labelText,
+          hintText: widget.hintText,
+          helperText: widget.helperText,
+          errorText: widget.errorText,
+          prefixIcon: widget.prefixIcon,
+          suffixIcon: widget.suffixIcon,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(DesignTokens.radiusMD),
+            borderSide: BorderSide(
+              color: Theme.of(context).dividerColor,
+              width: 1.0,
+            ),
           ),
-          decoration: InputDecoration(
-            labelText: widget.labelText,
-            hintText: widget.hintText,
-            helperText: widget.helperText,
-            errorText: widget.errorText,
-            prefixIcon: widget.prefixIcon,
-            suffixIcon: widget.suffixIcon,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(DesignTokens.radiusMD),
-              borderSide: BorderSide(
-                color: Theme.of(context).dividerColor,
-                width: 1.0,
-              ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(DesignTokens.radiusMD),
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor,
+              width: 2.0,
             ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(DesignTokens.radiusMD),
-              borderSide: BorderSide(
-                color: Theme.of(context).primaryColor,
-                width: 2.0,
-              ),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(DesignTokens.radiusMD),
-              borderSide: const BorderSide(
-                color: DesignTokens.errorRed,
-                width: 2.0,
-              ),
-            ),
-            contentPadding: const EdgeInsets.all(DesignTokens.spaceMD),
           ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(DesignTokens.radiusMD),
+            borderSide: const BorderSide(
+              color: DesignTokens.errorRed,
+              width: 2.0,
+            ),
+          ),
+          contentPadding: const EdgeInsets.all(DesignTokens.spaceMD),
         ),
       ),
     );
